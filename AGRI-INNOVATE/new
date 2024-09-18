@@ -1,0 +1,14 @@
+def closestNumbers(arr):
+    if len(arr)==0:
+        return []
+    arr.sort()  
+    mindiff=float('inf')  
+    result=[]
+    for i in range(len(arr)-1):
+        diff=arr[i+1]-arr[i]
+        if diff<mindiff:
+            mindiff=diff
+            result=[(arr[i], arr[i+1])]
+        elif diff==mindiff:
+            result.append((arr[i],arr[i+1]))
+    return result
